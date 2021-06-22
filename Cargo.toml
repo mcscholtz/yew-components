@@ -1,0 +1,21 @@
+[package]
+name = "yew-components"
+version = "0.1.0"
+authors = ["marius <mc.scholtz@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+yew-common =  { path = "../yew-common" }
+bulma-defines =  { path = "../bulma-defines" }
+fa-defines = { path = "../fa-defines" }
+yew = { version = "0.18" }
+
+[profile.release]
+lto = true
+opt-level = 'z'
+codegen-units = 1
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ['-Os']
